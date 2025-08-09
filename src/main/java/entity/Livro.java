@@ -24,7 +24,7 @@ public class Livro {
     @Enumerated(EnumType.STRING)
     @NotNull(message = "A categoria é obrigatoria")
     private Categoria categoria;
-    private String editora;
+    private String editoraa;
 
     @DecimalMin(value = "0.99", message = "O preco deve ser no minimo 0.99")
     private BigDecimal preco;
