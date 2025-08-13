@@ -3,35 +3,92 @@ package entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Data
+
 @Entity
 public class Livro {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "O titulo é obrigatorio")
+    @NotBlank(message = "O título é obrigatório")
     private String titulo;
-
-    @NotBlank(message = "O autor é obrigatorio")
-    private String Autor;
-
+    @NotBlank(message = "O autor é obrigatório")
+    private String autor;
     @Enumerated(EnumType.STRING)
-    @NotNull(message = "A categoria é obrigatoria")
+    @NotNull(message = "A categoria é obrigatória")
     private Categoria categoria;
-    private String editoraa;
-
-    @DecimalMin(value = "0.99", message = "O preco deve ser no minimo 0.99")
+    private String editora;
+    @DecimalMin(value = "0.99", message = "O preço deve ser no mínimo 0.99")
     private BigDecimal preco;
-
-    @Pattern(regexp = "^$970\\d(7)$^970\\d(10$)", message = "ESBN fora do padrão")
+    @Pattern(regexp = "^970\\d{7}$|^970\\d{10}$",
+            message = "ISBN fora do padrão")
     private String isbn;
-
     private LocalDate dataPublicacao;
 
+    public Long getId(long l) {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo(String harryPoter) {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getEditora() {
+        return editora;
+    }
+
+    public void setEditora(String editora) {
+        this.editora = editora;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public LocalDate getDataPublicacao() {
+        return dataPublicacao;
+    }
+
+    public void setDataPublicacao(LocalDate dataPublicacao) {
+        this.dataPublicacao = dataPublicacao;
+    }
 }
