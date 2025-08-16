@@ -1,4 +1,4 @@
-package entity;
+package com.aulaTDSPW.Eduardo.Nagado.entity;
 
 
 import jakarta.persistence.*;
@@ -28,7 +28,7 @@ public class Livro {
     private String isbn;
     private LocalDate dataPublicacao;
 
-    public Long getId(long l) {
+    public Long getId() {
         return id;
     }
 
@@ -36,7 +36,7 @@ public class Livro {
         this.id = id;
     }
 
-    public String getTitulo(String harryPoter) {
+    public String getTitulo() {
         return titulo;
     }
 

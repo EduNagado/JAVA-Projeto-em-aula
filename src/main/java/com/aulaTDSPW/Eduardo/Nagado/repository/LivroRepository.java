@@ -1,6 +1,6 @@
-package repository;
+package com.aulaTDSPW.Eduardo.Nagado.repository;
 
-import entity.Livro;
+import com.aulaTDSPW.Eduardo.Nagado.entity.Livro;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

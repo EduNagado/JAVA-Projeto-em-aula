@@ -1,9 +1,9 @@
-package service;
+package com.aulaTDSPW.Eduardo.Nagado.service;
 
-import entity.Livro;
+import com.aulaTDSPW.Eduardo.Nagado.entity.Livro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.LivroRepository;
+import com.aulaTDSPW.Eduardo.Nagado.repository.LivroRepository;
 
 
 @Service
