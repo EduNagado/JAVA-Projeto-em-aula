@@ -5,30 +5,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.aulaTDSPW.Eduardo.Nagado.repository.LivroRepository;
 
+import java.util.List;
+
 
 @Service
 public class LivroService {
-
-    private LivroRepository livroRepository;
+    private final LivroRepository livroRepository;
 
     @Autowired
-    public LivroService(LivroRepository livroRepository){
+    public LivroService(LivroRepository livroRepository) {
+        this.livroRepository = livroRepository;
     }
 
-    //CRUD
-    public Livro createLivro(Livro livro){
+    // CRUD -> Create, Read, Update, Delete
+    public Livro createLivro(Livro livro) {
         return livroRepository.save(livro);
     }
 
-    public Livro readLivro (Long id){
+    public Livro readLivro(Long id) {
         return livroRepository.findById(id).orElse(null);
     }
 
-    public Livro updateLivro(Livro livro){
+    public List<Livro> readLivros() {
+        return livroRepository.findAll();
+    }
+
+    public Livro updateLivro(Livro livro) {
         return livroRepository.save(livro);
     }
 
-    public void deletarLivro(Long id){
+    public void deleteLivro(Long id) {
         livroRepository.deleteById(id);
     }
 }

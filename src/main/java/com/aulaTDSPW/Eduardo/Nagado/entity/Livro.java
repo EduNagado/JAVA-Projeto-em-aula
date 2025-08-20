@@ -13,7 +13,7 @@ public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "O título é obrigatório")
+    @NotBlank(message = "O Título é obrigatório")
     private String titulo;
     @NotBlank(message = "O autor é obrigatório")
     private String autor;
