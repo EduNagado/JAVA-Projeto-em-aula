@@ -6,12 +6,14 @@
     <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
     <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}" defer></script>
     <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link th:src="@{/js/script.js}" defer/>
 </head>
 <body>
 <div th:insert="~{fragments/header :: cabecalho}"></div>
 <div class="main_content">
     <h2>Lista de Livros</h2>
-    <br>
+
+
     <table>
         <thead>
         <tr>
@@ -24,10 +26,33 @@
         <tr th:each="livro: ${listaLivros}">
             <td th:text="${livro.id}"> </td>
             <td th:text="${livro.titulo}"> </td>
-            <td>Ver</td>
+            <td>
+                <button th:attr="onclick=|showModal('infoModal' + ${livro.id})|">
+                    Ver
+                </button>
+            </td>
         </tr>
         </tbody>
     </table>
+    <div th:each="livro: ${listaLivros}"
+         th:attr="id=${'infoModal' + livro.id}"
+         style="display:none">
+        <p>
+            ID: <span th:text="${Livro.id}"></span><br>
+            Titulo: <span th:text="${Livro.titulo}"></span><br>
+            Autor: <span th:text="${Livro.autor}"></span><br>
+            Categoria: <span th:text="${Livro.categoria.descricao}"></span><br>
+            Editora: <span th:text="${Livro.editora}"></span><br>
+            Preco: <span th:text="${Livro.preco}"></span><br>
+            Isbn: <span th:text="${Livro.isbn}"></span><br>
+            Data de Publicacao: <span th:text="${#temporals.format(Livro.dataPublicacao)}"></span><br>
+
+            Editar | Deletar
+        </p>
+        <button th:attr="onclick=|hideModal('infoModal' + ${livro.id})|">
+            Fechar
+        </button>
+    </div>
 </div>
 <div th:insert="~{fragments/footer :: rodape}"></div>
 </body>
